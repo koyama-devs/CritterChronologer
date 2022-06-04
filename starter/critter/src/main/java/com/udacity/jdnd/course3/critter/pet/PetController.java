@@ -1,7 +1,6 @@
 package com.udacity.jdnd.course3.critter.pet;
 
 import com.udacity.jdnd.course3.critter.utils.ConvertDataService;
-import com.udacity.jdnd.course3.critter.user.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +16,6 @@ public class PetController {
 
     @Autowired
     private PetService petService;
-
-    @Autowired
-    private CustomerService customerService;
 
     @Autowired
     private ConvertDataService convertDataService;

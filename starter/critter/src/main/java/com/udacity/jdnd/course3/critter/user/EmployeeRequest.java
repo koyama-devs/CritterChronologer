@@ -3,7 +3,6 @@ package com.udacity.jdnd.course3.critter.user;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.time.LocalDate;

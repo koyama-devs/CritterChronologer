@@ -54,8 +54,10 @@ public class ConvertDataService {
         CustomerDTO customerDTO = new CustomerDTO();
         BeanUtils.copyProperties(customer, customerDTO);
         List<Pet> pets = customer.getPets();
-        List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
-        customerDTO.setPetIds(petIds);
+        if(pets != null){
+            List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
+            customerDTO.setPetIds(petIds);
+        }
         return customerDTO;
     }
 
@@ -91,11 +93,17 @@ public class ConvertDataService {
         ScheduleDTO scheduleDTO = new ScheduleDTO();
         BeanUtils.copyProperties(schedule, scheduleDTO);
         List<Employee> employees = schedule.getEmployees();
+        if(employees != null){
+            List<Long> employeeIds = employees.stream().map(employee -> employee.getId()).collect(Collectors.toList());
+            scheduleDTO.setEmployeeIds(employeeIds);
+        }
+
         List<Pet> pets = schedule.getPets();
-        List<Long> employeeIds = employees.stream().map(employee -> employee.getId()).collect(Collectors.toList());
-        List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
-        scheduleDTO.setEmployeeIds(employeeIds);
-        scheduleDTO.setPetIds(petIds);
+        if(pets != null){
+            List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
+            scheduleDTO.setPetIds(petIds);
+        }
+
         return scheduleDTO;
     }
 
